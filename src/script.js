@@ -1,23 +1,30 @@
+// VARIABLES
 let size = 30;
 let mouseDown = false;
 
+// MENU CONTROL ERROR
+let menu = document.querySelector(".menu");
+menu.addEventListener("mouseup", clickUp);
+
+// CANVAS
 for (let i = 0; i < screen.height / size; i++) {
   for (let j = 0; j < screen.width / size; j++) {
     let page = document.querySelector(".canvas");
-    let div = document.createElement("div");
-    div.style.width = size + "px";
-    div.style.height = size + "px";
-    div.classList.add("pixel");
+    let pixel = document.createElement("div");
+    pixel.style.width = size + "px";
+    pixel.style.height = size + "px";
+    pixel.classList.add("pixel");
 
-    div.addEventListener("mousedown", clickDown);
-    div.addEventListener("mouseover", addColorMouseDown);
-    div.addEventListener("mouseup", clickUp);
-    div.addEventListener("click", addColor);
+    pixel.addEventListener("mousedown", clickDown);
+    pixel.addEventListener("mouseover", addColorMouseDown);
+    pixel.addEventListener("mouseup", clickUp);
+    pixel.addEventListener("click", addColor);
 
-    page.appendChild(div);
+    page.appendChild(pixel);
   }
 }
 
+// FUNCTIONS
 function clickDown() {
   mouseDown = true;
 }
