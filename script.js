@@ -1,4 +1,5 @@
-var size = 30;
+let size = 30;
+let mouseDown = false;
 
 for (let i = 0; i < screen.height / size; i++) {
   for (let j = 0; j < screen.width / size; j++) {
@@ -7,12 +8,32 @@ for (let i = 0; i < screen.height / size; i++) {
     div.style.width = size + "px";
     div.style.height = size + "px";
     div.classList.add("div");
+
+    div.addEventListener("mousedown", clickDown);
+    div.addEventListener("mouseover", addColorMouseDown);
+    div.addEventListener("mouseup", clickUp);
+    div.addEventListener("click", addColor);
+
     page.appendChild(div);
   }
 }
-function isOverflown(element) {
-  return (
-    element.scrollHeight > element.clientHeight ||
-    element.scrollWidth > element.clientWidth
-  );
+
+function clickDown() {
+  mouseDown = true;
+}
+
+function addColorMouseDown(e) {
+  if (mouseDown) {
+    console.log(e);
+    e.target.style.backgroundColor = "#eee";
+  }
+}
+
+function addColor(e) {
+  console.log(e);
+  e.target.style.backgroundColor = "#eee";
+}
+
+function clickUp() {
+  mouseDown = false;
 }
