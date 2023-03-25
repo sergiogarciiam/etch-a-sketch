@@ -7,7 +7,7 @@ for (let i = 0; i < screen.height / size; i++) {
     let div = document.createElement("div");
     div.style.width = size + "px";
     div.style.height = size + "px";
-    div.classList.add("div");
+    div.classList.add("pixel");
 
     div.addEventListener("mousedown", clickDown);
     div.addEventListener("mouseover", addColorMouseDown);
@@ -24,14 +24,14 @@ function clickDown() {
 
 function addColorMouseDown(e) {
   if (mouseDown) {
-    console.log(e);
-    e.target.style.backgroundColor = "#eee";
+    let color_picker = document.querySelector(".color-picker");
+    e.target.style.backgroundColor = color_picker.value;
   }
 }
 
 function addColor(e) {
-  console.log(e);
-  e.target.style.backgroundColor = "#eee";
+  let color_picker = document.querySelector(".color-picker");
+  e.target.style.backgroundColor = color_picker.value;
 }
 
 function clickUp() {
