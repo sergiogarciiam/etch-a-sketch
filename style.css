@@ -68,4 +68,5 @@ body {
 
 .pixel:hover {
   background-color: #33333346;
+  opacity: 0.9;
 }
