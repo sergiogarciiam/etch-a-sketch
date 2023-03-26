@@ -48,6 +48,14 @@ body {
   opacity: 0.9;
 }
 
+.fa-eraser {
+  font-size: 25px;
+}
+
+.fa-eraser:hover {
+  opacity: 0.8;
+}
+
 /* CANVAS */
 .canvas {
   display: flex;
