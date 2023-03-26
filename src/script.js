@@ -47,7 +47,7 @@ function clickDown() {
 function addColorMouseDown(e) {
   if (mouseDownBool) {
     if (eraseModeBool) {
-      e.target.style.backgroundColor = "#fff";
+      e.target.style.removeProperty("background-color");
     } else {
       let color_picker = document.querySelector(".color-picker");
       e.target.style.backgroundColor = color_picker.value;
@@ -58,7 +58,7 @@ function addColorMouseDown(e) {
 
 function addColor(e) {
   if (eraseModeBool) {
-    e.target.style.backgroundColor = "#fff";
+    e.target.style.removeProperty("background-color");
   } else {
     let color_picker = document.querySelector(".color-picker");
     e.target.style.backgroundColor = color_picker.value;
