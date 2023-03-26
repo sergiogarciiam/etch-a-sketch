@@ -29,7 +29,9 @@ body {
 
   background-color: #fff;
   box-shadow: #3333335d 0px 0px 10px;
-  color: #333;
+  color: #000;
+
+  font-size: 25px;
 }
 
 .color-picker {
@@ -48,11 +50,7 @@ body {
   opacity: 0.9;
 }
 
-.fa-eraser {
-  font-size: 25px;
-}
-
-.fa-eraser:hover {
+.fa-solid:hover {
   opacity: 0.8;
 }
 
