@@ -55,8 +55,8 @@ body {
 }
 
 .separator {
-  padding-bottom: 25px;
-  border-bottom: 1px solid #3333339a;
+  padding-top: 25px;
+  border-top: 1px solid #3333339a;
 }
 
 /* CANVAS */

@@ -1,14 +1,17 @@
-// VARIABLES
+// -- VARIABLES -- //
+// Basic variables
 let size = 30;
 let mouseDownBool = false;
+// Modes
+let normalModeBool = true;
 let eraseModeBool = false;
 let rainbowModeBool = false;
 
-// MENU CONTROL ERROR
+// -- MENU CONTROL ERROR -- //
 let menu = document.querySelector(".menu");
 menu.addEventListener("mouseup", clickUp);
 
-// CANVAS
+// -- CANVAS -- //
 for (let i = 0; i < screen.height / size; i++) {
   for (let j = 0; j < screen.width / size; j++) {
     let page = document.querySelector(".canvas");
@@ -26,25 +29,30 @@ for (let i = 0; i < screen.height / size; i++) {
   }
 }
 
-// COLOR PICKER
+// -- MENU -- //
+// Color picker
 let color_picker = document.querySelector(".color-picker");
 let color_picker_wrapper = document.querySelector(".wrapper-color-picker");
 color_picker.onchange = pickColor;
 color_picker_wrapper.style.backgroundColor = color_picker.value;
 
-// ERASER
+// Pencil
+let pencil = document.querySelector(".fa-pencil");
+pencil.addEventListener("click", pencilMode);
+
+// Eraser
 let eraser = document.querySelector(".fa-eraser");
 eraser.addEventListener("click", eraseMode);
 
-// RAINBOW
+// Rainbow
 let rainbow = document.querySelector(".fa-rainbow");
 rainbow.addEventListener("click", rainbowMode);
 
-// RESET CANVAS
+// Reset
 let reset = document.querySelector(".fa-arrow-rotate-left");
 reset.addEventListener("click", resetCanvas);
 
-// COLOR FUNCTIONS
+// -- COLOR FUNCTIONS -- //
 function clickDown() {
   mouseDownBool = true;
 }
@@ -56,6 +64,7 @@ function addColorMouseDown(e) {
     } else if (rainbowModeBool) {
       e.target.style.backgroundColor = randomColor();
     } else {
+      // pencilModeBool
       let color_picker = document.querySelector(".color-picker");
       e.target.style.backgroundColor = color_picker.value;
     }
@@ -69,6 +78,7 @@ function addColor(e) {
   } else if (rainbowModeBool) {
     e.target.style.backgroundColor = randomColor();
   } else {
+    // pencilModeBool
     let color_picker = document.querySelector(".color-picker");
     e.target.style.backgroundColor = color_picker.value;
   }
@@ -82,19 +92,26 @@ function randomColor() {
   return "#" + Math.floor(Math.random() * 16777215).toString(16);
 }
 
-// MENU FUNCTIONS
+// -- MENU FUNCTIONS -- //
 function pickColor() {
   let color_picker_wrapper = document.querySelector(".wrapper-color-picker");
+  color_picker_wrapper.style.backgroundColor = color_picker.value;
+}
+
+function pencilMode() {
   let eraser = document.querySelector(".fa-eraser");
   let rainbow = document.querySelector(".fa-rainbow");
-
-  eraser.style.color = "black";
-  eraseModeBool = false;
 
   rainbow.style.color = "black";
   rainbowModeBool = false;
 
-  color_picker_wrapper.style.backgroundColor = color_picker.value;
+  if (eraseModeBool) {
+    eraser.style.color = "black";
+    eraseModeBool = false;
+  } else {
+    eraser.style.color = "#538DD7";
+    eraseModeBool = true;
+  }
 }
 
 function eraseMode() {
@@ -108,7 +125,7 @@ function eraseMode() {
     eraser.style.color = "black";
     eraseModeBool = false;
   } else {
-    eraser.style.color = "blue";
+    eraser.style.color = "#538DD7";
     eraseModeBool = true;
   }
 }
@@ -124,7 +141,7 @@ function rainbowMode() {
     rainbow.style.color = "black";
     rainbowModeBool = false;
   } else {
-    rainbow.style.color = "blue";
+    rainbow.style.color = "#538DD7";
     rainbowModeBool = true;
   }
 }
