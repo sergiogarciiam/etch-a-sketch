@@ -22,14 +22,14 @@ body {
   align-items: center;
   gap: 30px;
 
-  padding: 10px 20px;
+  padding: 20px 20px;
 
   border: 1px solid #333;
   border-radius: 10px;
 
   background-color: #fff;
   box-shadow: #3333335d 0px 0px 10px;
-  color: #000;
+  color: #333;
 
   font-size: 25px;
 }
@@ -54,6 +54,11 @@ body {
   opacity: 0.8;
 }
 
+.separator {
+  padding-bottom: 25px;
+  border-bottom: 1px solid #3333339a;
+}
+
 /* CANVAS */
 .canvas {
   display: flex;
@@ -62,6 +67,7 @@ body {
 }
 
 .pixel {
+  background-color: #eee;
 }
 
 .pixel:hover {

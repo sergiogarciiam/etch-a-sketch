@@ -40,6 +40,10 @@ eraser.addEventListener("click", eraseMode);
 let rainbow = document.querySelector(".fa-rainbow");
 rainbow.addEventListener("click", rainbowMode);
 
+// RESET CANVAS
+let reset = document.querySelector(".fa-arrow-rotate-left");
+reset.addEventListener("click", resetCanvas);
+
 // COLOR FUNCTIONS
 function clickDown() {
   mouseDownBool = true;
@@ -123,4 +127,11 @@ function rainbowMode() {
     rainbow.style.color = "blue";
     rainbowModeBool = true;
   }
+}
+
+function resetCanvas() {
+  let pixels = document.querySelectorAll(".pixel");
+  pixels.forEach((pixel) => {
+    pixel.style.removeProperty("background-color");
+  });
 }
