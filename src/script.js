@@ -3,7 +3,7 @@
 let size = 30;
 let mouseDownBool = false;
 // Modes
-let normalModeBool = true;
+let pencilModeBool = true;
 let eraseModeBool = false;
 let rainbowModeBool = false;
 
@@ -12,6 +12,7 @@ let menu = document.querySelector(".menu");
 menu.addEventListener("mouseup", clickUp);
 
 // -- CANVAS -- //
+pencilMode();
 for (let i = 0; i < screen.height / size; i++) {
   for (let j = 0; j < screen.width / size; j++) {
     let page = document.querySelector(".canvas");
@@ -99,51 +100,48 @@ function pickColor() {
 }
 
 function pencilMode() {
-  let eraser = document.querySelector(".fa-eraser");
+  let pencil = document.querySelector(".fa-pencil");
   let rainbow = document.querySelector(".fa-rainbow");
+  let eraser = document.querySelector(".fa-eraser");
 
-  rainbow.style.color = "black";
+  pencil.style.color = "#538DD7";
+  pencilModeBool = true;
+
+  rainbow.style.color = "#333";
   rainbowModeBool = false;
 
-  if (eraseModeBool) {
-    eraser.style.color = "black";
-    eraseModeBool = false;
-  } else {
-    eraser.style.color = "#538DD7";
-    eraseModeBool = true;
-  }
+  eraser.style.color = "#333";
+  eraseModeBool = false;
 }
 
 function eraseMode() {
-  let eraser = document.querySelector(".fa-eraser");
+  let pencil = document.querySelector(".fa-pencil");
   let rainbow = document.querySelector(".fa-rainbow");
+  let eraser = document.querySelector(".fa-eraser");
 
-  rainbow.style.color = "black";
+  pencil.style.color = "#333";
+  pencilModeBool = false;
+
+  rainbow.style.color = "#333";
   rainbowModeBool = false;
 
-  if (eraseModeBool) {
-    eraser.style.color = "black";
-    eraseModeBool = false;
-  } else {
-    eraser.style.color = "#538DD7";
-    eraseModeBool = true;
-  }
+  eraser.style.color = "#538DD7";
+  eraseModeBool = true;
 }
 
 function rainbowMode() {
-  let eraser = document.querySelector(".fa-eraser");
+  let pencil = document.querySelector(".fa-pencil");
   let rainbow = document.querySelector(".fa-rainbow");
+  let eraser = document.querySelector(".fa-eraser");
 
-  eraser.style.color = "black";
+  pencil.style.color = "#333";
+  pencilModeBool = false;
+
+  rainbow.style.color = "#538DD7";
+  rainbowModeBool = true;
+
+  eraser.style.color = "#333";
   eraseModeBool = false;
-
-  if (rainbowModeBool) {
-    rainbow.style.color = "black";
-    rainbowModeBool = false;
-  } else {
-    rainbow.style.color = "#538DD7";
-    rainbowModeBool = true;
-  }
 }
 
 function resetCanvas() {
