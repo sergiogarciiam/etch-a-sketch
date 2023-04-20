@@ -30,7 +30,7 @@ for (let i = 0; i < screen.height / size; i++) {
   }
 }
 
-// -- MENU -- //
+// -- SIDE MENU -- //
 // Color picker
 let color_picker = document.querySelector(".color-picker");
 let color_picker_wrapper = document.querySelector(".wrapper-color-picker");
@@ -52,6 +52,25 @@ rainbow.addEventListener("click", rainbowMode);
 // Reset
 let reset = document.querySelector(".fa-arrow-rotate-left");
 reset.addEventListener("click", resetCanvas);
+
+// New
+let plus = document.querySelector(".fa-plus");
+plus.addEventListener("click", newCanvas);
+
+// -- CHANGE SIZE MENU -- //
+const value = document.querySelector(".value-size");
+const input = document.querySelector(".new-size-input");
+content = input.value + "x" + input.value;
+value.textContent = input.value + " x " + input.value;
+input.addEventListener("input", (event) => {
+  value.textContent = event.target.value + " x " + event.target.value;
+});
+
+const xmark = document.querySelector(".fa-xmark");
+xmark.addEventListener("click", () => {
+  let sizeMenu = document.querySelector(".new-canvas-menu");
+  sizeMenu.style.display = "none";
+});
 
 // -- COLOR FUNCTIONS -- //
 function clickDown() {
@@ -149,4 +168,9 @@ function resetCanvas() {
   pixels.forEach((pixel) => {
     pixel.style.removeProperty("background-color");
   });
+}
+
+function newCanvas() {
+  let sizeMenu = document.querySelector(".new-canvas-menu");
+  sizeMenu.style.display = "flex";
 }

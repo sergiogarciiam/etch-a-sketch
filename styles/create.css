@@ -1,4 +1,21 @@
+/* CANVAS */
+.canvas {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.pixel {
+  background-color: #eee;
+}
+
+.pixel:hover {
+  background-color: #33333346;
+  opacity: 0.9;
+}
+
 /* MENU */
+.new-canvas-menu,
 .menu {
   position: absolute;
   margin: 25px;
@@ -47,18 +64,40 @@
   border-top: 1px solid #3333339a;
 }
 
-/* CANVAS */
-.canvas {
-  display: flex;
-  position: relative;
-  flex-wrap: wrap;
+/* NEW CANVAS MENU */
+.new-canvas-menu {
+  gap: 40px;
+
+  top: 35%;
+  left: 50%;
+  margin: -50px 0 0 -50px;
+
+  display: none;
 }
 
-.pixel {
-  background-color: #eee;
+.fa-xmark {
+  align-self: flex-end;
+  font-size: large;
+  color: #333;
+  border: none;
 }
 
-.pixel:hover {
-  background-color: #33333346;
-  opacity: 0.9;
+.fa-xmark:hover {
+  color: #333333cc;
+}
+
+.new-canvas-button {
+  color: #ddd;
+  font-weight: bolder;
+
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(14, 150, 99);
+  border: none;
+
+  cursor: pointer;
+}
+
+.new-canvas-button:hover {
+  background-color: rgba(14, 150, 100, 0.726);
 }
