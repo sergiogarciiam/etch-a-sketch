@@ -1,0 +1,51 @@
+/* CONTAINER */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10% auto;
+}
+
+.title {
+  color: #333;
+  font-weight: bolder;
+  font-size: 5em;
+  text-decoration: underline;
+}
+
+.name {
+  margin-left: 25em;
+  margin-bottom: 5em;
+  color: #333;
+}
+
+.name > a {
+  color: rgb(14, 150, 99);
+  text-decoration: none;
+}
+
+.name > a:hover {
+  text-decoration: underline;
+}
+
+.create-button {
+  text-decoration: none;
+}
+
+.create-button > button {
+  color: #ddd;
+  font-weight: bolder;
+  font-size: 1em;
+
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: rgb(14, 150, 99);
+  border: none;
+
+  cursor: pointer;
+}
+
+.create-button > button:hover {
+  background-color: rgba(14, 150, 100, 0.726);
+}

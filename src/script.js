@@ -104,7 +104,7 @@ function pencilMode() {
   let rainbow = document.querySelector(".fa-rainbow");
   let eraser = document.querySelector(".fa-eraser");
 
-  pencil.style.color = "#538DD7";
+  pencil.style.color = "#0E8C63";
   pencilModeBool = true;
 
   rainbow.style.color = "#333";
@@ -125,7 +125,7 @@ function eraseMode() {
   rainbow.style.color = "#333";
   rainbowModeBool = false;
 
-  eraser.style.color = "#538DD7";
+  eraser.style.color = "#0E8C63";
   eraseModeBool = true;
 }
 
@@ -137,7 +137,7 @@ function rainbowMode() {
   pencil.style.color = "#333";
   pencilModeBool = false;
 
-  rainbow.style.color = "#538DD7";
+  rainbow.style.color = "#0E8C63";
   rainbowModeBool = true;
 
   eraser.style.color = "#333";
