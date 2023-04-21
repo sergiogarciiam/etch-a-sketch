@@ -1,76 +1,90 @@
 // -- VARIABLES -- //
-// Basic variables
-let size = 30;
 let mouseDownBool = false;
-// Modes
 let pencilModeBool = true;
 let eraseModeBool = false;
 let rainbowModeBool = false;
 
-// -- MENU CONTROL ERROR -- //
+// -- MAIN -- //
 let menu = document.querySelector(".menu");
-menu.addEventListener("mouseup", clickUp);
-
-// -- CANVAS -- //
+menu.addEventListener("mouseup", clickUp); // menu control error
 pencilMode();
-for (let i = 0; i < screen.height / size; i++) {
-  for (let j = 0; j < screen.width / size; j++) {
-    let page = document.querySelector(".canvas");
-    let pixel = document.createElement("div");
-    pixel.style.width = size + "px";
-    pixel.style.height = size + "px";
-    pixel.classList.add("pixel");
-
-    pixel.addEventListener("mousedown", clickDown);
-    pixel.addEventListener("mouseover", addColorMouseDown);
-    pixel.addEventListener("mouseup", clickUp);
-    pixel.addEventListener("click", addColor);
-
-    page.appendChild(pixel);
-  }
-}
+newCanvas(30);
 
 // -- SIDE MENU -- //
-// Color picker
 let color_picker = document.querySelector(".color-picker");
 let color_picker_wrapper = document.querySelector(".wrapper-color-picker");
 color_picker.onchange = pickColor;
 color_picker_wrapper.style.backgroundColor = color_picker.value;
 
-// Pencil
 let pencil = document.querySelector(".fa-pencil");
 pencil.addEventListener("click", pencilMode);
 
-// Eraser
 let eraser = document.querySelector(".fa-eraser");
 eraser.addEventListener("click", eraseMode);
 
-// Rainbow
 let rainbow = document.querySelector(".fa-rainbow");
 rainbow.addEventListener("click", rainbowMode);
 
-// Reset
 let reset = document.querySelector(".fa-arrow-rotate-left");
 reset.addEventListener("click", resetCanvas);
 
-// New
 let plus = document.querySelector(".fa-plus");
-plus.addEventListener("click", newCanvas);
+plus.addEventListener("click", displayNewCanvasMenu);
 
-// -- CHANGE SIZE MENU -- //
-const value = document.querySelector(".value-size");
-const input = document.querySelector(".new-size-input");
-content = input.value + "x" + input.value;
-value.textContent = input.value + " x " + input.value;
+// -- NEW CANVAS MENU -- //
+let value = document.querySelector(".value-size");
+let input = document.querySelector(".new-size-input");
+value.textContent = input.value;
 input.addEventListener("input", (event) => {
-  value.textContent = event.target.value + " x " + event.target.value;
+  value.textContent = event.target.value;
 });
 
-const xmark = document.querySelector(".fa-xmark");
-xmark.addEventListener("click", () => {
+let xmark = document.querySelector(".fa-xmark");
+xmark.addEventListener("click", closeNewCanvasMenu);
+
+let newCanvasButton = document.querySelector(".new-canvas-button");
+newCanvasButton.addEventListener("click", () => {
   let sizeMenu = document.querySelector(".new-canvas-menu");
+  let input = document.querySelector(".new-size-input");
+  deletePixels();
+  newCanvas(parseInt(input.value));
   sizeMenu.style.display = "none";
+
+  let canvas = document.querySelector(".canvas");
+  canvas.style.pointerEvents = "all";
 });
+
+// -- CANVAS FUNCTIONS -- //
+function deletePixels() {
+  let pixels = document.querySelectorAll(".pixel");
+  pixels.forEach((pixel) => {
+    pixel.remove();
+  });
+}
+
+function newCanvas(size) {
+  for (let i = 0; i < screen.height / size; i++) {
+    for (let j = 0; j < screen.width / size; j++) {
+      let canvas = document.querySelector(".canvas");
+      let pixel = createPixel(size);
+      canvas.appendChild(pixel);
+    }
+  }
+}
+
+function createPixel(size) {
+  let pixel = document.createElement("div");
+  pixel.style.width = size + "px";
+  pixel.style.height = size + "px";
+  pixel.classList.add("pixel");
+
+  pixel.addEventListener("mousedown", clickDown);
+  pixel.addEventListener("mouseover", addColorMouseDown);
+  pixel.addEventListener("mouseup", clickUp);
+  pixel.addEventListener("click", addColor);
+
+  return pixel;
+}
 
 // -- COLOR FUNCTIONS -- //
 function clickDown() {
@@ -170,7 +184,24 @@ function resetCanvas() {
   });
 }
 
-function newCanvas() {
+function newCanvasMenu() {
+  if (sizeMenu.style.display == "none") {
+    displayNewCanvasMenu();
+  } else {
+    closeNewCanvasMenu();
+  }
+}
+
+function displayNewCanvasMenu() {
   let sizeMenu = document.querySelector(".new-canvas-menu");
   sizeMenu.style.display = "flex";
+  let canvas = document.querySelector(".canvas");
+  canvas.style.pointerEvents = "none";
+}
+
+function closeNewCanvasMenu() {
+  let sizeMenu = document.querySelector(".new-canvas-menu");
+  sizeMenu.style.display = "none";
+  let canvas = document.querySelector(".canvas");
+  canvas.style.pointerEvents = "all";
 }
