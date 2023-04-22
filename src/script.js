@@ -38,10 +38,11 @@ function createNewCanvas(size) {
 }
 
 function setupSideMenu() {
-  let color_picker = document.querySelector(".color-picker");
-  let color_picker_wrapper = document.querySelector(".wrapper-color-picker");
-  color_picker.onchange = pickColor;
-  color_picker_wrapper.style.backgroundColor = color_picker.value;
+  let colorPicker = document.querySelector(".color-picker");
+  colorPicker.onchange = pickColor;
+
+  let wrapperColorPicker = document.querySelector(".wrapper-color-picker");
+  wrapperColorPicker.style.backgroundColor = colorPicker.value;
 
   let menu = document.querySelector(".menu");
   menu.addEventListener("mouseup", clickUp); // menu control error
@@ -160,8 +161,9 @@ function createRandomColor() {
 }
 
 function pickColor() {
-  let color_picker_wrapper = document.querySelector(".wrapper-color-picker");
-  color_picker_wrapper.style.backgroundColor = color_picker.value;
+  let colorPicker = document.querySelector(".color-picker");
+  let wrapperColorPicker = document.querySelector(".wrapper-color-picker");
+  wrapperColorPicker.style.backgroundColor = colorPicker.value;
 }
 
 function activateEraseMode() {

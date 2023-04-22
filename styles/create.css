@@ -19,7 +19,7 @@
 .new-canvas-menu,
 .menu {
   position: absolute;
-  margin: 25px;
+  margin: 15px;
 
   display: flex;
   flex-wrap: wrap;
@@ -91,6 +91,11 @@
 
 .new-canvas-button {
   font-size: medium;
+}
+
+.value-size{
+  font-size: xx-large;
+  font-weight: bold;
 }
 
 /* WARNING MENU */
