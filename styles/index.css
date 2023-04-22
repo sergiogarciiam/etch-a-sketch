@@ -32,4 +32,15 @@
   text-decoration: none;
 }
 
+.github-link {
+  font-size: xx-large;
+  color: #333;
 
+  margin-top: 53vh;
+  margin-right: 1%;
+  align-self: flex-end;
+}
+
+.github-link > i:hover {
+  color: rgb(14, 150, 99);
+}

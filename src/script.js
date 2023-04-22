@@ -5,7 +5,7 @@ let eraseModeBool = false;
 let rainbowModeBool = false;
 
 // -- MAIN -- //
-createNewCanvas(30);
+deactivateEvents();
 activatePencilMode();
 setupSideMenu();
 setupNewCanvasMenu();
@@ -97,8 +97,7 @@ function createNewCanvasFromButton() {
 
   newCanvasMenu.style.display = "none";
 
-  let canvas = document.querySelector(".canvas");
-  canvas.style.pointerEvents = "all";
+  activateEvents();
 }
 
 function createPixel(size) {
@@ -219,9 +218,7 @@ function displayNewCanvasMenu() {
   let sizeMenu = document.querySelector(".new-canvas-menu");
   sizeMenu.style.display = "flex";
 
-  let canvas = document.querySelector(".canvas");
-  canvas.style.pointerEvents = "none";
-
+  deactivateEvents();
   closeResetCanvasConfirmation();
 }
 
@@ -229,6 +226,15 @@ function closeNewCanvasMenu() {
   let sizeMenu = document.querySelector(".new-canvas-menu");
   sizeMenu.style.display = "none";
 
+  activateEvents();
+}
+
+function activateEvents() {
   let canvas = document.querySelector(".canvas");
   canvas.style.pointerEvents = "all";
+}
+
+function deactivateEvents() {
+  let canvas = document.querySelector(".canvas");
+  canvas.style.pointerEvents = "none";
 }
