@@ -1,49 +1,42 @@
 function setupSideMenu() {
-  let colorPicker = document.querySelector(".color-picker");
+  const colorPicker = document.querySelector(".color-picker");
+  const wrapperColorPicker = document.querySelector(".wrapper-color-picker");
+  const menu = document.querySelector(".menu");
+  const pencil = document.querySelector(".fa-pencil");
+  const eraser = document.querySelector(".fa-eraser");
+  const rainbow = document.querySelector(".fa-rainbow");
+  const reset = document.querySelector(".fa-arrow-rotate-left");
+  const plus = document.querySelector(".fa-plus");
+
   colorPicker.onchange = pickColor;
-
-  let wrapperColorPicker = document.querySelector(".wrapper-color-picker");
   wrapperColorPicker.style.backgroundColor = colorPicker.value;
-
-  let menu = document.querySelector(".menu");
   menu.addEventListener("mouseup", clickUp); // menu control error
-
-  let pencil = document.querySelector(".fa-pencil");
   pencil.addEventListener("click", activatePencilMode);
-
-  let eraser = document.querySelector(".fa-eraser");
   eraser.addEventListener("click", activateEraseMode);
-
-  let rainbow = document.querySelector(".fa-rainbow");
   rainbow.addEventListener("click", activateRainbowMode);
-
-  let reset = document.querySelector(".fa-arrow-rotate-left");
   reset.addEventListener("click", resetCanvasConfirmation);
-
-  let plus = document.querySelector(".fa-plus");
   plus.addEventListener("click", displayNewCanvasMenu);
 }
 
 function setupNewCanvasMenu() {
-  let sizeValue = document.querySelector(".value-size");
-  let sizeInput = document.querySelector(".new-size-input");
+  const sizeValue = document.querySelector(".value-size");
+  const sizeInput = document.querySelector(".new-size-input");
+  const buttonCloseNewCanvasMenu = document.querySelector(".fa-xmark");
+  const newCanvasButton = document.querySelector(".new-canvas-button");
 
   sizeValue.textContent = sizeInput.value;
   sizeInput.addEventListener("input", (event) => {
     sizeValue.textContent = event.target.value;
   });
 
-  let buttonCloseNewCanvasMenu = document.querySelector(".fa-xmark");
   buttonCloseNewCanvasMenu.addEventListener("click", closeNewCanvasMenu);
-
-  let newCanvasButton = document.querySelector(".new-canvas-button");
   newCanvasButton.addEventListener("click", createNewCanvasFromButton);
 }
 
 function setupWarningMenu() {
-  buttonResetYes = document.querySelector(".button-reset-yes");
-  buttonResetYes.addEventListener("click", resetCanvas);
+  const buttonResetYes = document.querySelector(".button-reset-yes");
+  const buttonResetNo = document.querySelector(".button-reset-no");
 
-  buttonResetNo = document.querySelector(".button-reset-no");
+  buttonResetYes.addEventListener("click", resetCanvas);
   buttonResetNo.addEventListener("click", closeResetCanvasConfirmation);
 }

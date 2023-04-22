@@ -13,7 +13,7 @@ function addColor(e) {
     e.target.style.backgroundColor = createRandomColor();
   } else {
     // pencilModeBool
-    let color_picker = document.querySelector(".color-picker");
+    const color_picker = document.querySelector(".color-picker");
     e.target.style.backgroundColor = color_picker.value;
   }
 }
@@ -33,8 +33,8 @@ function addColorMouseDown(e) {
 }
 
 function pickColor() {
-  let colorPicker = document.querySelector(".color-picker");
-  let wrapperColorPicker = document.querySelector(".wrapper-color-picker");
+  const colorPicker = document.querySelector(".color-picker");
+  const wrapperColorPicker = document.querySelector(".wrapper-color-picker");
   wrapperColorPicker.style.backgroundColor = colorPicker.value;
 }
 

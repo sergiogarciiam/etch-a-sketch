@@ -1,6 +1,6 @@
 function createNewCanvasFromButton() {
-  let newCanvasMenu = document.querySelector(".new-canvas-menu");
-  let sizeInput = document.querySelector(".new-size-input");
+  const newCanvasMenu = document.querySelector(".new-canvas-menu");
+  const sizeInput = document.querySelector(".new-size-input");
 
   deletePixels();
   createNewCanvas(parseInt(sizeInput.value));
@@ -13,15 +13,17 @@ function createNewCanvasFromButton() {
 function createNewCanvas(size) {
   for (let i = 0; i < screen.height / size; i++) {
     for (let j = 0; j < screen.width / size; j++) {
-      let canvas = document.querySelector(".canvas");
-      let pixel = createPixel(size);
+      const canvas = document.querySelector(".canvas");
+      const pixel = createPixel(size);
+
       canvas.appendChild(pixel);
     }
   }
 }
 
 function createPixel(size) {
-  let pixel = document.createElement("div");
+  const pixel = document.createElement("div");
+
   pixel.style.width = size + "px";
   pixel.style.height = size + "px";
   pixel.classList.add("pixel");
@@ -35,7 +37,7 @@ function createPixel(size) {
 }
 
 function deletePixels() {
-  let pixels = document.querySelectorAll(".pixel");
+  const pixels = document.querySelectorAll(".pixel");
   pixels.forEach((pixel) => {
     pixel.remove();
   });

@@ -1,60 +1,56 @@
-function activatePencilMode() {
-  let pencil = document.querySelector(".fa-pencil");
-  let rainbow = document.querySelector(".fa-rainbow");
-  let eraser = document.querySelector(".fa-eraser");
+const BLACK_COLOR = "#333";
+const GREEN_COLOR = "#0E8C63";
 
-  pencil.style.color = "#0E8C63";
+const pencil = document.querySelector(".fa-pencil");
+const rainbow = document.querySelector(".fa-rainbow");
+const eraser = document.querySelector(".fa-eraser");
+
+function activatePencilMode() {
+  pencil.style.color = GREEN_COLOR;
   pencilModeBool = true;
 
-  rainbow.style.color = "#333";
+  rainbow.style.color = BLACK_COLOR;
   rainbowModeBool = false;
 
-  eraser.style.color = "#333";
+  eraser.style.color = BLACK_COLOR;
   eraseModeBool = false;
 }
 
 function activateEraseMode() {
-  let pencil = document.querySelector(".fa-pencil");
-  let rainbow = document.querySelector(".fa-rainbow");
-  let eraser = document.querySelector(".fa-eraser");
-
-  pencil.style.color = "#333";
+  pencil.style.color = BLACK_COLOR;
   pencilModeBool = false;
 
-  rainbow.style.color = "#333";
+  rainbow.style.color = BLACK_COLOR;
   rainbowModeBool = false;
 
-  eraser.style.color = "#0E8C63";
+  eraser.style.color = GREEN_COLOR;
   eraseModeBool = true;
 }
 
 function activateRainbowMode() {
-  let pencil = document.querySelector(".fa-pencil");
-  let rainbow = document.querySelector(".fa-rainbow");
-  let eraser = document.querySelector(".fa-eraser");
-
-  pencil.style.color = "#333";
+  pencil.style.color = BLACK_COLOR;
   pencilModeBool = false;
 
-  rainbow.style.color = "#0E8C63";
+  rainbow.style.color = GREEN_COLOR;
   rainbowModeBool = true;
 
-  eraser.style.color = "#333";
+  eraser.style.color = BLACK_COLOR;
   eraseModeBool = false;
 }
 
 function resetCanvasConfirmation() {
-  let warningMenu = document.querySelector(".warning-menu");
+  const warningMenu = document.querySelector(".warning-menu");
   warningMenu.style.display = "flex";
 }
 
 function closeResetCanvasConfirmation() {
-  let warningMenu = document.querySelector(".warning-menu");
+  const warningMenu = document.querySelector(".warning-menu");
   warningMenu.style.display = "none";
 }
 
 function resetCanvas() {
-  let pixels = document.querySelectorAll(".pixel");
+  const pixels = document.querySelectorAll(".pixel");
+
   pixels.forEach((pixel) => {
     pixel.style.removeProperty("background-color");
   });
@@ -63,7 +59,7 @@ function resetCanvas() {
 }
 
 function displayNewCanvasMenu() {
-  let sizeMenu = document.querySelector(".new-canvas-menu");
+  const sizeMenu = document.querySelector(".new-canvas-menu");
   sizeMenu.style.display = "flex";
 
   deactivateEvents();
@@ -71,7 +67,7 @@ function displayNewCanvasMenu() {
 }
 
 function closeNewCanvasMenu() {
-  let sizeMenu = document.querySelector(".new-canvas-menu");
+  const sizeMenu = document.querySelector(".new-canvas-menu");
   sizeMenu.style.display = "none";
 
   activateEvents();
