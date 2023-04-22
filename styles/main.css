@@ -1,3 +1,4 @@
+/* GENERAL */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -9,6 +10,7 @@ body {
   background-color: #eee;
 }
 
+/* BUTTON */
 .button {
   color: #ddd;
   font-weight: bolder;
