@@ -91,7 +91,13 @@
   font-size: medium;
 }
 
+.value-size {
+  font-size: xx-large;
+  font-weight: bold;
+}
+
 .go-menu {
+  margin-top: -1em;
   color: #333;
   text-decoration: none;
   font-size: medium;
@@ -100,11 +106,6 @@
 .go-menu:hover {
   color: rgb(14, 150, 99);
   text-decoration: underline;
-}
-
-.value-size {
-  font-size: xx-large;
-  font-weight: bold;
 }
 
 /* WARNING MENU */
