@@ -15,6 +15,7 @@
 }
 
 /* MENU */
+.warning-menu,
 .new-canvas-menu,
 .menu {
   position: absolute;
@@ -68,9 +69,11 @@
 .new-canvas-menu {
   gap: 40px;
 
-  top: 35%;
-  left: 50%;
-  margin: -50px 0 0 -50px;
+  top: 0%;
+  left: 5%;
+
+  width: 300px;
+  font-size: medium;
 
   display: none;
 }
@@ -87,17 +90,22 @@
 }
 
 .new-canvas-button {
-  color: #ddd;
-  font-weight: bolder;
-
-  padding: 10px;
-  border-radius: 10px;
-  background-color: rgb(14, 150, 99);
-  border: none;
-
-  cursor: pointer;
+  font-size: medium;
 }
 
-.new-canvas-button:hover {
-  background-color: rgba(14, 150, 100, 0.726);
+/* WARNING MENU */
+.warning-menu {
+  top: 27%;
+  left: 5%;
+
+  width: 300px;
+
+  font-size: medium;
+
+  display: none;
+}
+
+.buttons-container {
+  display: flex;
+  gap: 20px;
 }
